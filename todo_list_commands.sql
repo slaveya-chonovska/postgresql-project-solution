@@ -1,4 +1,4 @@
---------------------- CREATE/INSERT TABLES ----------------------------
+--------------------- CREATE/INSERT INTO TABLES ----------------------------
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
 	username VARCHAR(50) NOT NULL,
