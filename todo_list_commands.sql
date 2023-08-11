@@ -12,6 +12,14 @@ CREATE TABLE category (
 	description VARCHAR (140)
 );
 
+CREATE TABLE todo_list (
+	id SERIAL PRIMARY KEY,
+	title VARCHAR(60) NOT NULL,
+	summary VARCHAR(160),
+	user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+	category_id INTEGER NOT NULL REFERENCES category(id) ON DELETE CASCADE
+);
+
 CREATE TABLE entry (
 	id SERIAL PRIMARY KEY,
 	description VARCHAR(140),
@@ -21,14 +29,6 @@ CREATE TABLE entry (
 	create_user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
 	update_user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
 	todo_list_id INTEGER NOT NULL REFERENCES todo_list(id) ON DELETE CASCADE,
-);
-
-CREATE TABLE todo_list (
-	id SERIAL PRIMARY KEY,
-	title VARCHAR(60) NOT NULL,
-	summary VARCHAR(160),
-	user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-	category_id INTEGER NOT NULL REFERENCES category(id) ON DELETE CASCADE
 );
 
 INSERT INTO users(username, email)
@@ -65,7 +65,7 @@ VALUES ('Pay the electricity bills', 3, 1, 4),
 
 --------------------- QUARIES ----------------------------
 
--- join all table
+-- join all table and get information for todo_list with id = 1
 SELECT td.title, td.summary, c.label, e.description, e.is_complete, e.created_at,
 e.updated_at, u1.username as creator_username, u1.email as creator_email,
 u2.username as updater_username, u2.email as updater_email
@@ -91,7 +91,7 @@ FROM users AS u
 JOIN todo_list AS td on u.id = td.user_id
 GROUP BY u.id;
 
--- count each entry marked as completed for each list
+-- count every entry marked as completed for each list
 SELECT td.title, count(is_complete) as completed_tasks
 FROM entry AS e
 JOIN todo_list AS td on e.todo_list_id = td.id
