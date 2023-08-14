@@ -1,5 +1,4 @@
-# postgresql-project-solution
-
+# todo_list
 ## Commands written on PostgreSQL to:
 ### 1. Create tables:
  - users, with columns:
