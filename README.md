@@ -8,5 +8,6 @@
 - aggregation - contains solutions to all 22 exercises from the "Aggregation" exercises section in https://pgexercises.com/questions/aggregates/
 - working_with_timestamp - contains solutions to all 10 exercises from the "Working with Timestamps" exercises section in https://pgexercises.com/questions/date/
 - string_operations - contains solutions to all 7 exercises from the "String Operations" exercises section in https://pgexercises.com/questions/string/
+- recursive - contains solutions to all 3 exercises from the "Recursive" exercises section in https://pgexercises.com/questions/recursive/
 
 
