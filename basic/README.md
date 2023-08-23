@@ -1,8 +1,8 @@
 # Basic exercises
 
 ## The file contains solutions to the following exercises:
-  1. Retrieve everything from a table
-  2. Retrieve specific columns from a table
+  1. Retrieve everything FROM a table
+  2. Retrieve specific columns FROM a table
   3. Produce a list of facilities that charge a fee to members
   4. Produce a list of facilities that charge a fee to members, and that fee is less than 1/50th of the monthly maintenance cost
   5. Produce a list of all facilities with the word 'Tennis' in their name

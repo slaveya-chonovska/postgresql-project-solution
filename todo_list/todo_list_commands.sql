@@ -65,7 +65,7 @@ VALUES ('Pay the electricity bills', 3, 1, 4),
 
 --------------------- QUARIES ----------------------------
 
--- join all table
+-- JOIN all table
 SELECT td.title, td.summary, c.label, e.description, e.is_complete, e.created_at,
 e.updated_at, u1.username as creator_username, u1.email as creator_email,
 u2.username as updater_username, u2.email as updater_email
@@ -77,10 +77,10 @@ JOIN category AS c on c.id = td.category_id
 WHERE td.id = 1;
 
 -- get the percentage of category for each todo lists
-with cnt_todo_lists as (select count(*) as cnt from todo_list)
+WITH cnt_todo_lists as (SELECT count(*) as cnt FROM todo_list)
 
 SELECT c.label, count(td.id) as todo_list_cnt, 
-((count(td.id)::float / (select cnt from cnt_todo_lists)::float) * 100) as percent_category_of_todo_list
+((count(td.id)::float / (SELECT cnt FROM cnt_todo_lists)::float) * 100) as percent_category_of_todo_list
 FROM category AS c
 JOIN todo_list AS td on c.id = td.category_id
 GROUP BY label;
@@ -95,5 +95,5 @@ GROUP BY u.id;
 SELECT td.title, count(is_complete) as completed_tasks
 FROM entry AS e
 JOIN todo_list AS td on e.todo_list_id = td.id
-where is_complete = true
+WHERE is_complete = true
 GROUP BY td.id;

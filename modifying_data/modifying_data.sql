@@ -10,9 +10,9 @@ INSERT INTO cd.facilities(facid, name, membercost, guestcost, initialoutlay, mon
 VALUES (9, 'Spa', 20, 30, 100000, 800),
 	   (10, 'Squash Court 2', 3.5, 17.5, 5000, 80);
 
--- 3. Insert the same 'Spa' entry but this time automatically +1 from the previous facid
+-- 3. Insert the same 'Spa' entry but this time automatically +1 FROM the previous facid
 INSERT INTO cd.facilities(facid, name, membercost, guestcost, initialoutlay, monthlymaintenance)
-VALUES ((select max(facid) from cd.facilities)+1, 'Spa', 20, 30, 100000, 800);
+VALUES ((SELECT max(facid) FROM cd.facilities)+1, 'Spa', 20, 30, 100000, 800);
 
 -- 4. Update initial outlay to 10000 for the second tennis court entry
 UPDATE cd.facilities
@@ -24,11 +24,11 @@ SET membercost = 6, guestcost = 30 WHERE name like 'Tennis Court%';
 
 -- 6. Alter the price of the second tennis court so that it costs 10% more than the first one
 UPDATE cd.facilities
-SET membercost = (select membercost::decimal + (membercost*0.1) from cd.facilities where name = 'Tennis Court 1'),
-	guestcost = (select guestcost::decimal + (guestcost*0.1) from cd.facilities where name = 'Tennis Court 1')
+SET membercost = (SELECT membercost::decimal + (membercost*0.1) FROM cd.facilities WHERE name = 'Tennis Court 1'),
+	guestcost = (SELECT guestcost::decimal + (guestcost*0.1) FROM cd.facilities WHERE name = 'Tennis Court 1')
 WHERE name = 'Tennis Court 2';
 
--- 7. Delete all records from the table bookings
+-- 7. Delete all records FROM the table bookings
 DELETE FROM cd.bookings;
 
 -- 8. Delete member with id 37

@@ -15,11 +15,11 @@
   12. List the total slots booked per facility per month in 2012, also display the total for the year for each facility and the overall total slots
   13. List the total hours booked per named facility, each slots is half an hour
   14. List each member's first booking after September 1st 2012
-  15. Produce a list of member names, with each row containing the total member count, order by join date
+  15. Produce a list of member names, with each row containing the total member count, ORDER BY join date
   16. Produce a numbered list of members
   17. Output the facility id that has the highest number of slots booked, again
-  18. Rank members by (rounded by ten) hours used, order by rank, surname, and first name
+  18. Rank members by (rounded by ten) hours used, ORDER BY rank, surname, and first name
   19. Find the top three revenue generating facilities
-  20. Classify facilities by equally sized groups of high, average, and low based on their revenue. Order by classification and facility name
+  20. Classify facilities by equally sized groups of high, average, and low based on their revenue. ORDER BY classification and facility name
   21. Calculate the payback time for each facility
   22. Calculate a rolling average of total revenue
